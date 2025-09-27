@@ -19,21 +19,21 @@ public class User {
   public User() {
   }
 
-  public User(String name, String email, String password, LocalDateTime createdAt,
+  public User(String name, String email, String password,
       Set<Role> roles) {
 
     this.name = name;
     this.email = email;
     this.password = password;
-    this.createdAt = createdAt;
 
     this.roles = roles;
   };
 
-  public void addRole(Role role ){
+  public void addRole(Role role) {
     this.roles.add(role);
   }
-  public void removeRole(Role role ){
+
+  public void removeRole(Role role) {
     this.roles.remove(role);
   }
 
@@ -97,6 +97,5 @@ public class User {
   public void setRoles(Set<Role> roles) {
     this.roles = roles;
   }
-  
 
 }
