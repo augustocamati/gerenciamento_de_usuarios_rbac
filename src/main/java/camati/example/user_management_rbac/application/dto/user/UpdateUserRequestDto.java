@@ -1,26 +1,21 @@
 package camati.example.user_management_rbac.application.dto.user;
 
-import java.util.UUID;
 
-public class UserDto {
-  private UUID id;
+public class UpdateUserRequestDto {
+
   private String name;
+
   private String email;
+
   private String password;
 
-  public UserDto(UUID id, String name, String email, String password) {
-    this.id = id;
+  public UpdateUserRequestDto() {
+  }
+
+  public UpdateUserRequestDto(String name, String email, String password) {
     this.name = name;
     this.email = email;
     this.password = password;
-  }
-
-  public UUID getId() {
-    return id;
-  }
-
-  public void setId(UUID id) {
-    this.id = id;
   }
 
   public String getName() {
@@ -46,8 +41,6 @@ public class UserDto {
   public void setPassword(String password) {
     this.password = password;
   }
-
-  
 
   
 }

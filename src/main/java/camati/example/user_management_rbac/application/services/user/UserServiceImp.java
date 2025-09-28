@@ -78,9 +78,30 @@ public class UserServiceImp implements UserService {
   }
 
   @Override
-  public UpdateUserResponseDto update(UUID uuid, UpdateUserRequestDto updateRatingDto) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'update'");
+  public UpdateUserResponseDto update(UUID uuid, UpdateUserRequestDto request) {
+    
+    Optional<User> optionalUser = userRepository.findById(uuid);
+    if (optionalUser.isEmpty()) {
+      throw new IllegalArgumentException("Usuário não encontrado para atualização");
+    }
+
+    User user = optionalUser.get();
+
+    if (request.getName() != null && !request.getName().isEmpty()) {
+      user.setName(request.getName());
+    }
+
+    if (request.getEmail() != null && !request.getEmail().isEmpty()) {
+      user.setEmail(request.getEmail());
+    }
+
+    if (request.getPassword() != null && !request.getPassword().isEmpty()) {
+      user.setPassword(request.getPassword());
+    }
+
+    user = userRepository.save(user);
+
+    return new UpdateUserResponseDto(user.getId(), user.getName(), user.getEmail());
   }
 
   @Override
