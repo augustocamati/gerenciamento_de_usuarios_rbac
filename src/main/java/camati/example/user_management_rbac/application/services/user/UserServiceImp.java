@@ -5,6 +5,8 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
+import org.springframework.stereotype.Service;
+
 import camati.example.user_management_rbac.application.dto.user.AssignRoleRequestDto;
 import camati.example.user_management_rbac.application.dto.user.CreateUserRequestDto;
 import camati.example.user_management_rbac.application.dto.user.CreateUserResponseDto;
@@ -16,6 +18,7 @@ import camati.example.user_management_rbac.domain.repositories.RoleRepository;
 import camati.example.user_management_rbac.domain.repositories.UserRepository;
 import jakarta.transaction.Transactional;
 
+@Service
 public class UserServiceImp implements UserService {
   private final UserRepository userRepository;
   private final RoleRepository roleRepository;
