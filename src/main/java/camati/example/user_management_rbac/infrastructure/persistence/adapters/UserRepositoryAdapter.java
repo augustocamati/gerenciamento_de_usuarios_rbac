@@ -28,12 +28,12 @@ public class UserRepositoryAdapter implements UserRepository {
   }
 
   @Override
-  public Optional<User> findByEmail(String email) {
+  public Optional<User> findUserByEmail(String email) {
     return userJpaRepository.findByEmail(email).map(mapper::toDomain);
   }
 
   @Override
-  public List<User> findAll() {
+  public List<User> findAllUsers() {
     return userJpaRepository.findAll()
         .stream()
         .map(mapper::toDomain)
@@ -41,7 +41,7 @@ public class UserRepositoryAdapter implements UserRepository {
   }
 
   @Override
-  public Optional<User> findById(UUID id) {
+  public Optional<User> findUserById(UUID id) {
     return userJpaRepository.findById(id).map(mapper::toDomain);
   }
 
