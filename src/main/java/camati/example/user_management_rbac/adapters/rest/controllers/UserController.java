@@ -35,7 +35,7 @@ public class UserController {
 
   // Criar usuário
   @PostMapping
-  public ResponseEntity<CreateUserResponseDto> createUser(@Validated @RequestBody CreateUserRequestDto request) {
+  public ResponseEntity<CreateUserResponseDto> createUser( @RequestBody CreateUserRequestDto request) {
     CreateUserResponseDto response = userService.createUser(request);
     return ResponseEntity.status(HttpStatus.CREATED).body(response);
   }
@@ -52,7 +52,7 @@ public class UserController {
   // Listar todos usuários
   @GetMapping
   public ResponseEntity<List<UserDto>> getAllUsers() {
-    return ResponseEntity.ok(userService.findAll());
+    return ResponseEntity.ok(userService.findAllUsers());
   }
 
   // Buscar usuário por ID
