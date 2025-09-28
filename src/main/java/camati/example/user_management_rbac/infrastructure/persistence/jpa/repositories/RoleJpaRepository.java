@@ -3,9 +3,11 @@ package camati.example.user_management_rbac.infrastructure.persistence.jpa.repos
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import camati.example.user_management_rbac.infrastructure.persistence.jpa.entities.RoleJpaEntity;
 
+@Repository
 public interface RoleJpaRepository extends JpaRepository<RoleJpaEntity, Long> {
    Optional<RoleJpaEntity> findByName(String name);
 }
