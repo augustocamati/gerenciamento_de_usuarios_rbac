@@ -5,8 +5,8 @@ import io.micrometer.common.lang.NonNull;
 public record CreateUserRequestDto(
      String name,
 
-    @NonNull String email,
+     String email,
 
-    @NonNull String password) {
+     String password) {
 
 }
