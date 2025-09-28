@@ -31,7 +31,7 @@ public class UserServiceImp implements UserService {
   @Override
   public CreateUserResponseDto createUser(CreateUserRequestDto request) {
 
-    userRepository.findByEmail(request.email())
+    userRepository.findUserByEmail(request.email())
         .ifPresent(u -> {
           // throw new UserAlreadyExistsException(request.getEmail());
           throw new IllegalArgumentException("User with email " + request.email() + " already exists");
@@ -49,7 +49,7 @@ public class UserServiceImp implements UserService {
   @Transactional
   @Override
   public void assignRole(AssignRoleRequestDto request) {
-    var user = userRepository.findById(request.getUserId())
+    var user = userRepository.findUserById(request.getUserId())
         .orElseThrow(() -> new IllegalArgumentException("User not found with id: " + request.getUserId()));
 
     var role = roleRepository.findByName(request.getRoleName())
@@ -60,8 +60,8 @@ public class UserServiceImp implements UserService {
   }
 
   @Override
-  public List<UserDto> findAll() {
-    return userRepository.findAll()
+  public List<UserDto> findAllUsers() {
+    return userRepository.findAllUsers()
         .stream()
         .map(user -> new UserDto(
             user.getId(),
@@ -73,7 +73,7 @@ public class UserServiceImp implements UserService {
 
   @Override
   public Optional<UserDto> findByUuid(UUID uuid) {
-    return userRepository.findById(uuid).map(user -> new UserDto(
+    return userRepository.findUserById(uuid).map(user -> new UserDto(
         user.getId(),
         user.getName(),
         user.getEmail(),
@@ -83,7 +83,7 @@ public class UserServiceImp implements UserService {
   @Override
   public UpdateUserResponseDto update(UUID uuid, UpdateUserRequestDto request) {
     
-    Optional<User> optionalUser = userRepository.findById(uuid);
+    Optional<User> optionalUser = userRepository.findUserById(uuid);
     if (optionalUser.isEmpty()) {
       throw new IllegalArgumentException("Usuário não encontrado para atualização");
     }
