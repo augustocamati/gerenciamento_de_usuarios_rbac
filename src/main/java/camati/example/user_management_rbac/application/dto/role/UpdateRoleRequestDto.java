@@ -9,10 +9,9 @@ public class UpdateRoleRequestDto {
 
   
 
-  public UpdateUserRequestDto() {
-  }
+ 
 
-  public UpdateUserRequestDto(String name, String description) {
+  public UpdateRoleRequestDto(String name, String description) {
     this.name = name;
     this.description = description;
   

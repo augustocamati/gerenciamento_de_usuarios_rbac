@@ -18,7 +18,7 @@ public interface UserService {
   void assignRole(AssignRoleRequestDto request);
 
   
-  List<UserDto> findAllUsers();
+  List<UserDto> findAll();
 
   Optional<UserDto> findByUuid(UUID uuid);
 

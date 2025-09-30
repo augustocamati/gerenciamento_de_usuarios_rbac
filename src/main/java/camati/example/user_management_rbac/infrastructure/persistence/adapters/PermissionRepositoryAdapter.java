@@ -3,12 +3,15 @@ package camati.example.user_management_rbac.infrastructure.persistence.adapters;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Repository;
+
 import camati.example.user_management_rbac.domain.entities.Permission;
 import camati.example.user_management_rbac.domain.repositories.PermissionRepository;
 import camati.example.user_management_rbac.infrastructure.persistence.jpa.entities.PermissionJpaEntity;
 import camati.example.user_management_rbac.infrastructure.persistence.jpa.repositories.PermissionJpaRepository;
 import camati.example.user_management_rbac.infrastructure.persistence.mappers.PermissionMapper;
 
+@Repository
 public class PermissionRepositoryAdapter implements PermissionRepository {
   private final PermissionJpaRepository permissionJpaRepository;
   private final PermissionMapper mapper;

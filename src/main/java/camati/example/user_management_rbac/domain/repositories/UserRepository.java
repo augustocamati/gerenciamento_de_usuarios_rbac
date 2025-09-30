@@ -9,8 +9,8 @@ import camati.example.user_management_rbac.domain.entities.User;
 
 public interface UserRepository {
   User save(User user);
-  Optional<User> findUserByEmail(String email);
-  List<User> findAllUsers();
-  Optional<User> findUserById(UUID id);
+  Optional<User> findByEmail(String email);
+  List<User> findAll();
+  Optional<User> findById(UUID id);
   void deleteById(UUID id);
 }

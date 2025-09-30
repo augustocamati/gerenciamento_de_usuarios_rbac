@@ -3,12 +3,14 @@ package camati.example.user_management_rbac.infrastructure.persistence.adapters;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Repository;
+
 import camati.example.user_management_rbac.domain.entities.Role;
 import camati.example.user_management_rbac.domain.repositories.RoleRepository;
 import camati.example.user_management_rbac.infrastructure.persistence.jpa.entities.RoleJpaEntity;
 import camati.example.user_management_rbac.infrastructure.persistence.jpa.repositories.RoleJpaRepository;
 import camati.example.user_management_rbac.infrastructure.persistence.mappers.RoleMapper;
-
+@Repository
 public class RoleRepositoryAdapter implements RoleRepository {
   private final RoleJpaRepository roleJpaRepository;
   private final RoleMapper mapper;

@@ -5,12 +5,15 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Repository;
+
 import camati.example.user_management_rbac.domain.entities.User;
 import camati.example.user_management_rbac.domain.repositories.UserRepository;
 import camati.example.user_management_rbac.infrastructure.persistence.jpa.entities.UserJpaEntity;
 import camati.example.user_management_rbac.infrastructure.persistence.jpa.repositories.UserJpaRepository;
 import camati.example.user_management_rbac.infrastructure.persistence.mappers.UserMapper;
 
+@Repository
 public class UserRepositoryAdapter implements UserRepository {
 
   private final UserJpaRepository userJpaRepository;
@@ -28,12 +31,12 @@ public class UserRepositoryAdapter implements UserRepository {
   }
 
   @Override
-  public Optional<User> findUserByEmail(String email) {
+  public Optional<User> findByEmail(String email) {
     return userJpaRepository.findByEmail(email).map(mapper::toDomain);
   }
 
   @Override
-  public List<User> findAllUsers() {
+  public List<User> findAll() {
     return userJpaRepository.findAll()
         .stream()
         .map(mapper::toDomain)
@@ -41,7 +44,7 @@ public class UserRepositoryAdapter implements UserRepository {
   }
 
   @Override
-  public Optional<User> findUserById(UUID id) {
+  public Optional<User> findById(UUID id) {
     return userJpaRepository.findById(id).map(mapper::toDomain);
   }
 
