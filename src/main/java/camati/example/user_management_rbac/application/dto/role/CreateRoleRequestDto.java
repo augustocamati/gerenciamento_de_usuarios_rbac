@@ -1,10 +1,9 @@
 package camati.example.user_management_rbac.application.dto.role;
 
-import io.micrometer.common.lang.NonNull;
 
-public record CreateUserRequestDto(
+public record CreateRoleRequestDto(
      String name,
-     String description,
+     String description
 
   
 ) {
