@@ -1,25 +1,24 @@
 package camati.example.user_management_rbac.application.dto.role;
 
-import java.util.UUID;
 
 public class RoleDto {
-  private UUID id;
+  private Long id;
   private String name;
   private String description;
   
 
-  public RoleDto(UUID id, String name, String description) {
+  public RoleDto(Long id, String name, String description) {
     this.id = id;
     this.name = name;
     this.description = description;
  
   }
 
-  public UUID getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(UUID id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
