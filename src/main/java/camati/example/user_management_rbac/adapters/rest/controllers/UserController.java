@@ -52,7 +52,7 @@ public class UserController {
   // Listar todos usuários
   @GetMapping
   public ResponseEntity<List<UserDto>> getAllUsers() {
-    return ResponseEntity.ok(userService.findAllUsers());
+    return ResponseEntity.ok(userService.findAll());
   }
 
   // Buscar usuário por ID
